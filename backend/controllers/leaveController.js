@@ -1,9 +1,9 @@
 const LeaveRequest = require("../models/LeaveRequest.js");
 
-// Employee submits leave request
+
 const submitLeaveRequest = async (req, res) => {
   const { date, reason } = req.body;
-  const employeeId = req.user.id; // from auth middleware
+  const employeeId = req.user.id; 
 
   try {
     const leaveRequest = new LeaveRequest({
@@ -18,7 +18,7 @@ const submitLeaveRequest = async (req, res) => {
   }
 };
 
-// Employee views own leave requests
+
 const getMyLeaveRequests = async (req, res) => {
   const employeeId = req.user.id;
   try {
@@ -31,7 +31,6 @@ const getMyLeaveRequests = async (req, res) => {
   }
 };
 
-// Manager views all leave requests
 const getAllLeaveRequests = async (req, res) => {
   try {
     const leaves = await LeaveRequest.find()
@@ -43,9 +42,8 @@ const getAllLeaveRequests = async (req, res) => {
   }
 };
 
-// Manager approves or rejects request
 const updateLeaveRequest = async (req, res) => {
-  const { id } = req.params; // leave request id
+  const { id } = req.params; 
   const { status, managerComment } = req.body;
 
   if (!["approved", "rejected"].includes(status)) {

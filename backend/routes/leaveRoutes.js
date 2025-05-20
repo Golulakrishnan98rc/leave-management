@@ -11,7 +11,6 @@ const {
   updateLeaveRequest,
 } = require("../controllers/leaveController.js");
 
-// Employee routes
 router.post(
   "/submit",
   authMiddleware,
@@ -25,7 +24,6 @@ router.get(
   getMyLeaveRequests
 );
 
-// Manager routes
 router.get(
   "/all",
   authMiddleware,
